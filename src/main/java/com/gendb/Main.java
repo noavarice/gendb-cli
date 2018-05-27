@@ -38,7 +38,7 @@ public class Main {
 
   private static final String CONFIG_NOT_FOUND = "Configuration file '%1$s' not found";
 
-  private static final String FILE_NOT_FOUND = "File '%1$s' not found";
+  private static final String CONN_PROPS_FILE_NOT_FOUND = "JDBC connection properties file '%1$s' not found";
 
   private static boolean isHelpArg(final String arg) {
     return arg.equals("-h") || arg.equals("--help");
@@ -96,8 +96,8 @@ public class Main {
     }
 
     final Path secondArgPath = Paths.get(args[3]);
-    if (!Files.exists(secondArgPath)) {
-      System.out.println(String.format(FILE_NOT_FOUND, secondArgPath.toString()));
+    if (isConnPropertiesPathArg(args[3]) && !Files.exists(secondArgPath)) {
+      System.out.println(String.format(CONN_PROPS_FILE_NOT_FOUND, secondArgPath.toString()));
       return;
     }
 
