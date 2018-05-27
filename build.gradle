@@ -16,14 +16,16 @@ ext {
     elVersion = "3.0.0"
     log4jVersion = "2.11.0"
     mysqlVersion = "5.1.13"
+
+    junitVersion = "4.12"
 }
 
 dependencies {
-    compile "org.hibernate.validator:hibernate-validator:$hibernateValidatorVersion"
+    implementation "org.hibernate.validator:hibernate-validator:$hibernateValidatorVersion"
     runtime "org.glassfish:javax.el:$elVersion"
     runtime "org.apache.logging.log4j:log4j-slf4j-impl:$log4jVersion"
 
-    testCompile group: 'junit', name: 'junit', version: '4.12'
+    testImplementation "junit:junit:$junitVersion"
 }
 
 jar {
