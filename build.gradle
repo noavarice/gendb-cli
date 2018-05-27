@@ -21,7 +21,8 @@ ext {
 }
 
 dependencies {
-    implementation "org.hibernate.validator:hibernate-validator:$hibernateValidatorVersion"
+    compile "org.hibernate.validator:hibernate-validator:$hibernateValidatorVersion"
+    compile files(project.getProperty('gendbPath'))
     runtime "org.glassfish:javax.el:$elVersion"
     runtime "org.apache.logging.log4j:log4j-slf4j-impl:$log4jVersion"
 
