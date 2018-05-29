@@ -82,14 +82,14 @@ public class Main {
     }
 
     order(args);
-    final Path configPath = Paths.get(args[1]);
+    final Path configPath = Paths.get(args[1]).toAbsolutePath();
     if (!Files.exists(configPath)) {
       System.out.println(String.format(CONFIG_NOT_FOUND, configPath.toString()));
       return;
     }
 
-    final Path secondArgPath = Paths.get(args[3]);
-    if (fromArg(args[3]) == CONNECTION_PROPERTIES_PATH && !Files.exists(secondArgPath)) {
+    final Path secondArgPath = Paths.get(args[3]).toAbsolutePath();
+    if (fromArg(args[2]) == CONNECTION_PROPERTIES_PATH && !Files.exists(secondArgPath)) {
       System.out.println(String.format(CONN_PROPS_FILE_NOT_FOUND, secondArgPath.toString()));
       return;
     }
